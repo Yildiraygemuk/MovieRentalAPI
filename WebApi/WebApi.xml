@@ -1,0 +1,111 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WebApi</name>
+    </assembly>
+    <members>
+        <member name="M:WebApi.Controllers.AuthController.Login(Entities.UserForLoginDto)">
+            <summary>
+            Performs the login process
+            </summary>
+            <param name="userForLoginDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApi.Controllers.AuthController.Register(Entities.Dtos.UserLoginDto.UserForRegisterDto)">
+            <summary>
+            Performs the register process
+            </summary>
+            <param name="userForRegisterDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApi.Controllers.CategoriesController.GetList">
+            <summary>
+            Gets the category list
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WebApi.Controllers.CategoriesController.GetById(System.Guid)">
+            <summary>
+            Returns the category with the given id
+            </summary>
+            <param name="categoryId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApi.Controllers.CategoriesController.Add(Entities.Dtos.CategoryDto)">
+            <summary>
+            Performs category addition
+            </summary>
+            <param name="category"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApi.Controllers.CategoriesController.Update(Entities.Dtos.CategoryPutDto)">
+            <summary>
+            Performs category update
+            </summary>
+            <param name="category"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApi.Controllers.CategoriesController.Delete(System.Guid)">
+            <summary>
+            Deletes the category with the given id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApi.Controllers.MoviesController.GetList">
+            <summary>
+            Gets the movie list
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WebApi.Controllers.MoviesController.GetById(System.Guid)">
+            <summary>
+            Returns the movie with the given id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApi.Controllers.MoviesController.GetListByCategory(System.Guid)">
+            <summary>
+            Returns the movies of the given category with the id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApi.Controllers.MoviesController.Add(Entities.Dtos.MovieDto)">
+            <summary>
+            Performs category addition
+            </summary>
+            <param name="movie"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApi.Controllers.MoviesController.RentTheMovie(System.Guid)">
+            <summary>
+            Performs movie rentals
+            </summary>
+            <param name="movie"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApi.Controllers.MoviesController.CancelRentTheMovie(System.Guid)">
+            <summary>
+            Cancels movie rental
+            </summary>
+            <param name="movie"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApi.Controllers.MoviesController.Update(Entities.Dtos.MoviePutDto)">
+            <summary>
+            Performs movie update
+            </summary>
+            <param name="movie"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApi.Controllers.MoviesController.Delete(System.Guid)">
+            <summary>
+            Deletes the movie with the given id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
