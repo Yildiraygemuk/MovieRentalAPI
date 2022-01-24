@@ -1,5 +1,5 @@
 <h4>MovieRentalAPI</h4>
-Movie rental API application created in a layered architecture structure in accordance with OOP and SOLID principles and which I make it easy to reach endpoints with swagger.
+I created a movie rental API application, which was created in a layered architecture in accordance with SOLID principles, and which made it easy to reach endpoints with swagger. 
 <br></br>
 I used these when creating the project;
 <br></br>
@@ -8,7 +8,6 @@ I used these when creating the project;
 <li>Dependency Injection and Autofac Implementation</li>
 <li>Objective, clean code techniques</li>
 <li>SOLID principles</li>
-<li>OOP principles</li>
 <li>Error & Success Data Result Management</li>
 <li>Effective Role management system infrastructure</li>
 <li>Effective JWT configuration</li>
