@@ -3,15 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30717.126
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "Entities\Entities.csproj", "{0805DB97-226A-475D-8C82-4E950BB30931}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entities", "Entities\Entities.csproj", "{0805DB97-226A-475D-8C82-4E950BB30931}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{8589833D-1EF2-4289-B7B7-DD82289B59AA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess", "DataAccess\DataAccess.csproj", "{8589833D-1EF2-4289-B7B7-DD82289B59AA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business", "Business\Business.csproj", "{9C266973-9EE3-477E-813F-94CEA021CC8C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Business", "Business\Business.csproj", "{9C266973-9EE3-477E-813F-94CEA021CC8C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{C59E1EF8-B3AE-4B10-ACA9-165C6421C3CB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core", "Core\Core.csproj", "{C59E1EF8-B3AE-4B10-ACA9-165C6421C3CB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi", "WebApi\WebApi.csproj", "{137E10A1-3647-4302-A6EE-9E9C17A8C34A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApi", "WebApi\WebApi.csproj", "{137E10A1-3647-4302-A6EE-9E9C17A8C34A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileCreateWorkerService", "FileCreateWorkerService\FileCreateWorkerService.csproj", "{144152DE-5187-483E-8957-91A81A1A9387}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{137E10A1-3647-4302-A6EE-9E9C17A8C34A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{137E10A1-3647-4302-A6EE-9E9C17A8C34A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{137E10A1-3647-4302-A6EE-9E9C17A8C34A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{144152DE-5187-483E-8957-91A81A1A9387}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{144152DE-5187-483E-8957-91A81A1A9387}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{144152DE-5187-483E-8957-91A81A1A9387}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{144152DE-5187-483E-8957-91A81A1A9387}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

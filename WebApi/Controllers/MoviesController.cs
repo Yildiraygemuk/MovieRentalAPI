@@ -1,13 +1,17 @@
 ﻿using Business.Abstract;
+using Core.Helpers;
 using Entities.Concrete;
 using Entities.Dtos;
+using Entities.Vms;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using WebApi.Services;
 
 namespace WebApi.Controllers
 {
@@ -17,9 +21,13 @@ namespace WebApi.Controllers
     public class MoviesController : ControllerBase
     {
         private readonly IMovieService _movieService;
-        public MoviesController(IMovieService movieService)
+        private readonly IHttpAccessorHelper _httpAccessorHelper;
+        private readonly RabbitMQPublisher _rabbitMQPublisher;
+        public MoviesController(IMovieService movieService, IHttpAccessorHelper httpAccessorHelper, RabbitMQPublisher rabbitMQPublisher)
         {
             _movieService = movieService;
+            _httpAccessorHelper = httpAccessorHelper;
+            _rabbitMQPublisher = rabbitMQPublisher;
         }
         /// <summary>
         /// Gets the movie list
@@ -140,6 +148,36 @@ namespace WebApi.Controllers
                 return Ok(result.Message);
             }
             return BadRequest(result.Message);
+        }
+        /// <summary>
+        /// It establishes the connection with RabbitMQ and creates the queue. Sends the e-mail address to the queue as a message
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("CreateProductExcel")]
+        public async Task<IActionResult> CreateProductExcel()
+        {
+            var userMail = _httpAccessorHelper.GetUserEMail();
+
+            _rabbitMQPublisher.Publish(new CreateExcelMessage()
+            {
+                UserMail = userMail
+            });
+            return Ok();
+        }
+
+        [HttpPost("Upload")]
+        [AllowAnonymous]
+        [ApiExplorerSettings(IgnoreApi = true)]
+        public async Task<IActionResult> Upload(IFormFile file, string toEmail)
+        {
+            if (file.Length < 0) return BadRequest();
+            var filePath = "product-excel" + Path.GetExtension(file.FileName);
+            var path = Path.Combine(Directory.GetCurrentDirectory(), "Files", filePath);
+            using FileStream stream = new FileStream(path, FileMode.Create);
+            await file.CopyToAsync(stream);
+            stream.Close();
+            _movieService.SendEmail(filePath, toEmail);
+            return Ok();
         }
     }
 }

@@ -18,6 +18,8 @@ using Entities.Vms;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Text;
 using System.Threading;
 
@@ -131,6 +133,33 @@ namespace Business.Concrete
                 return new ErrorResult(Messages.MovieNotFound);
             _movieRepository.Delete(model);
             return new SuccessResult(Messages.MovieDeleted);
+        }
+        public void SendEmail(string filePath, string toEmail)
+        {
+            var subject = "title";
+            var message = "message";
+            var mailMessage = new MailMessage("your email", toEmail)
+            {
+                Subject = subject,
+                Body = message,
+            };
+
+            var fileNameWithSplit = System.IO.Directory.GetCurrentDirectory() + @"\Files\" + filePath;
+            mailMessage.Attachments.Add(new System.Net.Mail.Attachment(fileNameWithSplit));
+            EmailInformation(mailMessage);
+        }
+        public static void EmailInformation(MailMessage mail)
+        {
+            var client = new SmtpClient
+            {
+                Port = 587,
+                EnableSsl = true,
+                UseDefaultCredentials = true,
+                Host = "smtp.gmail.com",
+                Credentials = new NetworkCredential("your mail", "your password")
+            };
+
+            client.Send(mail);
         }
 
     }

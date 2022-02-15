@@ -16,7 +16,8 @@ namespace Business.Abstract
         IResult Add(MovieDto movie);
         IResult Delete(Guid id);
         IResult Update(MoviePutDto movie);
-        IResult RentTheMovie(Guid id );
+        IResult RentTheMovie(Guid id);
         IResult CancelRentTheMovie(Guid id);
+        void SendEmail(string filePath, string toEmail);
     }
 }

@@ -16,6 +16,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using RabbitMQ.Client;
 using Swashbuckle.Swagger;
 using System;
 using System.Collections.Generic;
@@ -23,6 +24,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
+using WebApi.Services;
 
 namespace WebApi
 {
@@ -38,6 +40,9 @@ namespace WebApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSingleton(sp => new ConnectionFactory() { Uri = new Uri(Configuration.GetConnectionString("RabbitMQ")), DispatchConsumersAsync = true });
+            services.AddSingleton<RabbitMQPublisher>();
+            services.AddSingleton<RabbitMQClientService>();
             services.AddDbContext<ShoppingContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("GameRentalContext")));
 
